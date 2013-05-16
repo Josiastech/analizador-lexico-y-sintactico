@@ -1,5 +1,4 @@
-Analizador Lexico y Sintactico 
-(Proyecto de Compiladores)
+Analizador Lexico y Sintactico - Curso Compiladores
 =============
 
 Lee archivos de entrada definidos en las especificaciones del proyecto, se definen expresiones regulares y gramaticas 
