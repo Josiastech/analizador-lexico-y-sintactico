@@ -1,0 +1,135 @@
+package analizador_lexico;
+import java.io.*;
+import java.lang.*;
+import java_cup.runtime.*;
+import java_cup.runtime.Symbol;
+import java.util.ArrayList;
+import java.util.*;
+import analizador_lexico.*;
+import javax.swing.JOptionPane;
+
+action code{:
+
+void print(String msj)
+
+   {System.out.println(msj);}
+:}
+parser code {:
+
+public void syntax_error(Symbol cur_token){
+System.out.println("va a ingresar el error sintactico "+ cur_token.value);
+JOptionPane.showMessageDialog(null, "Debe de ingresar algun Texto", "ERROR", JOptionPane.ERROR_MESSAGE);
+}
+public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
+
+System.out.println("error  YA no se recupera");
+ }
+public void semantic(Symbol cur_token,String n)
+{
+System.out.println("error semantico ");
+  }
+public void semantic(String msg, Object obj) {
+}
+:};
+
+//////////////////////////////////////////////////////////////////
+///////simbolos terminales generales//////////////////
+////////////
+//////////////////////////////////////////////////////////////////
+
+terminal PARENTESIS_A,PARENTESIS_C,PUNTOCOMA,DOSPUNTOS,COMA,DIAGONAL,SIG_RESTA,
+IGUAL,LLAVE_A,LLAVE_C,CORCHETE_A,CORCHETE_C,SIG_SUMA,SIG_MULTIPLICACION,MAYORQ,MENORQ,COMILLA,DIAGONAL_I,PUNTO;
+
+
+terminal ALFANUMERICO;
+terminal NUMERICO;
+terminal ALFABETICO;
+terminal ETIQUETA;
+terminal ATRIBUTO;
+
+
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////
+////////////////////////SIMBOLOS NO TERMINALES /////////////////////
+///////////////////////////////////////////
+/////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+
+
+
+
+non terminal START, INICIO;
+non terminal String SIMBOLO;
+
+
+
+
+
+
+
+start with START;
+
+
+
+
+
+/****************************inicio de la gramatica **********************************
+********************************************
+******************************************/
+
+
+START ::=    START INICIO
+
+
+           |       INICIO;
+
+
+
+INICIO::=     SIMBOLO :d    {:Interfaz.rotular("Se reconocio el token tipo Simbolo:   "+d.toString());:}
+            |   ALFANUMERICO:d    {:Interfaz.rotular("Se reconocio el token tipo Alfanumerico:   "+d.toString());:}
+            |  NUMERICO:d    {:Interfaz.rotular("Se reconocio el token tipo Numerico:   "+d.toString());:}
+            |  ALFABETICO:d    {:Interfaz.rotular("Se reconocio el token tipo Alfabetico:   "+d.toString());:}
+            |  ETIQUETA:d    {:Interfaz.rotular("Se reconocio el token tipo Etiqueta de HTML:   "+d.toString());:}
+            |  ATRIBUTO:d    {:Interfaz.rotular("Se reconocio el token tipo Atributo de HTML:   "+d.toString());:}
+            |  PUNTO:d    {:Interfaz.rotular("Se reconocio el token tipo Atributo de HTML:   "+d.toString());:}
+           
+
+
+
+;
+
+
+
+SIMBOLO ::=   PARENTESIS_A:d        {: RESULT =d.toString();:}
+
+            | PARENTESIS_C:d  {: RESULT =d.toString();:}
+            | PUNTOCOMA:d    {: RESULT =d.toString();:}
+            | DOSPUNTOS:d   {: RESULT =d.toString();:}
+            | COMA:d      {: RESULT =d.toString();:}
+            | DIAGONAL:d        {: RESULT =d.toString();:}
+            | SIG_RESTA:d       {: RESULT =d.toString();:}
+            | IGUAL:d  {: RESULT =d.toString();:}
+            | LLAVE_A:d    {: RESULT =d.toString();:}
+            | LLAVE_C:d   {: RESULT =d.toString();:}
+            | CORCHETE_A:d      {: RESULT =d.toString();:}
+            | CORCHETE_C:d        {: RESULT =d.toString();:}
+            | MAYORQ:d      {: RESULT =d.toString();:}
+            | MENORQ:d        {: RESULT =d.toString();:}
+            | COMILLA:d        {: RESULT =d.toString();:}
+            | DIAGONAL_I:d        {: RESULT =d.toString();:}
+            | PUNTO:d        {: RESULT =d.toString();:}
+
+
+           
+             
+            
+            
+            
+           ;
+
+
+
+/****************************Fin de la gramatica******************************************************************************
+*/
