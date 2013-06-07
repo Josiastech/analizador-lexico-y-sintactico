@@ -2,9 +2,7 @@ package analizador;
 import java_cup.runtime.*;
 import javax.swing.*;
 import java.util.*;
-//import analizador_lexico.*;
-
-
+//import  analizador_lexico.*;
 public class Yylex implements java_cup.runtime.Scanner {
 	private final int YY_BUFFER_SIZE = 512;
 	private final int YY_F = -1;
@@ -566,7 +564,6 @@ int columna=1;
 "18:2,27,-1,27,-1:22,218:17,216,218:6,27,218:2,27,-1,27,-1:22,217,218:23,27," +
 "218:2,27,-1,27,-1:22,196,218:23,27,218:2,27,-1,27,-1:22,218,197,218:22,27,2" +
 "18:2,27,-1,27,-1");
-
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
 		int yy_lookahead;
@@ -647,14 +644,6 @@ return new Symbol(sym.EOF, null); }
 						break;
 					case 9:
 						{  return new Symbol(sym.COMA, yyline, yychar,  yytext());}
-					case -10:
-						break;
-					case 10:
-						{  return new Symbol(sym.DIAGONAL, yyline, yychar,  yytext());}
-					case -11:
-						break;
-					case 11:
-						{  return new Symbol(sym.IGUAL, yyline, yychar,  yytext());}
 					case -12:
 						break;
 					case 12:
@@ -679,14 +668,6 @@ return new Symbol(sym.EOF, null); }
 						break;
 					case 17:
 						{  return new Symbol(sym.MENORQ, yyline, yychar,  yytext());}
-					case -18:
-						break;
-					case 18:
-						{  return new Symbol(sym.SIG_SUMA, yyline, yychar,  yytext());}
-					case -19:
-						break;
-					case 19:
-						{  return new Symbol(sym.SIG_RESTA, yyline, yychar,  yytext());}
 					case -20:
 						break;
 					case 20:
@@ -719,10 +700,6 @@ return new Symbol(sym.EOF, null); }
 						break;
 					case 27:
 						{  return new Symbol(sym.ALFANUMERICO, yyline, yychar,  yytext());}
-					case -28:
-						break;
-					case 28:
-						{ return new Symbol(sym.SIG_MULTIPLICACION, yyline, yychar,  yytext());}
 					case -29:
 						break;
 					case 29:

@@ -10,32 +10,18 @@
  */
 package analizador;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import java.io.*;
-
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import java.util.*;
 
-/**
- *
- * @author Administrador
- */
 public class Interfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz
-     */
     File temp;
 
     public Interfaz() {
         initComponents();
-
-
-
     }
 
     /**
@@ -130,7 +116,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBorder(null);
@@ -145,10 +131,8 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/analizador/Iconos/Guardar 2.png"))); // NOI18N
         jMenu3.setText("Guardar");
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/analizador/Iconos/Guardar p2.png"))); // NOI18N
         jMenuItem2.setText("Guardar HTML");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +141,6 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem2);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/analizador/Iconos/Guardar.png"))); // NOI18N
         jMenuItem6.setText("Guardar Analisis");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +151,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         jMenu1.add(jMenu3);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/analizador/Iconos/Cerrar.png"))); // NOI18N
         jMenuItem3.setText("Cerrar");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +163,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         jMenu2.setText("Ejecutar");
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/analizador/Iconos/Compilar.png"))); // NOI18N
         jMenuItem4.setText("Analisis Lexico");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +171,6 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem4);
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/analizador/Iconos/Comparacion2.png"))); // NOI18N
         jMenuItem5.setText("Comparar");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,13 +207,10 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         Abrir();
         jTabbedPane1.setSelectedComponent(jPanel1);
-
-
     }private void jMenuItem3ActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed1
             // TODO add your handling code here:
             Salir();
     }//GEN-LAST:event_jMenuItem3ActionPerformed1
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         Comparador C = new Comparador();
@@ -260,37 +237,30 @@ public class Interfaz extends javax.swing.JFrame {
         jTabbedPane1.setSelectedComponent(jPanel2);
         jTextArea2.setText("");
         C.jTextArea2.setText("");
-
         Temporal();
         new Main(temp.getPath());
         String strCmd;
-
         try {
-
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-
-            Connection con = DriverManager.getConnection("jdbc:odbc:Musica");
+            Connection con = DriverManager.getConnection("jdbc:odbc:Tarjeta");
             Statement stmt = con.createStatement();
-
-            strCmd = "SELECT * FROM Musica";
-
+            strCmd = "SELECT * FROM Tarjeta";
             ResultSet rs = stmt.executeQuery(strCmd);
-
             int a = 0;
             while (rs.next()) {
                 a++;
-
-                String strNombre = rs.getString("Nom_Can");
-                String strAutor = rs.getString("Autor");
-                String strAlbum = rs.getString("Album");
-                String strGenero = rs.getString("Genero");
-                String strAnio = rs.getString("Anio");
-                //          jTextArea3.setText( jTextArea3.getText()+"Cancion No.: " +a+"\n\n");
-                //        jTextArea3.setText( jTextArea3.getText()+"      Nombre: " +strNombre+"\n");
-                //       jTextArea3.setText( jTextArea3.getText()+"      Autor: "+strAutor +"\n" );
-                //     jTextArea3.setText( jTextArea3.getText()+"      Genero: "+strGenero +"\n" );
-                //   jTextArea3.setText( jTextArea3.getText()+"      Album: "+strAlbum +"\n" );
-                // jTextArea3.setText( jTextArea3.getText()+"      Año: "+strAnio +"\n\n" );
+                String strNUMTARJ = rs.getString("Numero Tarjeta: ");
+                String strNOMBRE1 = rs.getString("Nombres ");
+                String strMES = rs.getString("AutorMes ");
+                String strANIO = rs.getString("Anio ");
+                String strCOD_CLI = rs.getString("Codigo Cliente ");
+                String strNUMEROCASA = rs.getString("Numero de Casa ");
+                String strAVENIDA = rs.getString("Avenida ");
+                String strCALLE = rs.getString("Zona ");
+                String strCIUDAD = rs.getString("Ciudad ");
+                String strPAIS = rs.getString("Pais");
+                String strNIT = rs.getString("Nit ");
+                String strTELEFONO = rs.getString("Telefono ");
             }
             con.close();
         } catch (Exception e) {
@@ -305,7 +275,9 @@ public class Interfaz extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
+                
                 new Interfaz().setVisible(true);
             }
         });

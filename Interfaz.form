@@ -24,17 +24,11 @@
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="jMenu3">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/analizador/Iconos/Guardar 2.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
                   <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/analizador/Iconos/Guardar p2.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Guardar HTML"/>
                   </Properties>
                   <Events>
@@ -43,9 +37,6 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
                   <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/analizador/Iconos/Guardar.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Guardar Analisis"/>
                   </Properties>
                   <Events>
@@ -56,9 +47,6 @@
             </Menu>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/analizador/Iconos/Cerrar.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Cerrar"/>
               </Properties>
               <Events>
@@ -74,9 +62,6 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/analizador/Iconos/Compilar.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Analisis Lexico"/>
               </Properties>
               <Events>
@@ -85,9 +70,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/analizador/Iconos/Comparacion2.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Comparar"/>
               </Properties>
               <Events>
@@ -157,7 +139,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jTabbedPane1" min="-2" pref="343" max="-2" attributes="0"/>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

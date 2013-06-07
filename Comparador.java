@@ -1,24 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * Comparador.java
- *
- * Created on 20/03/2011, 07:33:55 PM
- */
 package analizador;
 
-/**
- *
- * @author Josias
- */
 public class Comparador extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Comparador
-     */
     public Comparador() {
         initComponents();
     }
@@ -112,6 +95,7 @@ public class Comparador extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
                 new Comparador().setVisible(true);
             }
