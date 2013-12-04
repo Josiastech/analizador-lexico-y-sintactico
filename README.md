@@ -12,7 +12,3 @@ Las siguientes librerias son utilizadas para trabajar la parte del analisis lexi
 * [JLex](http://www.cs.princeton.edu/~appel/modern/java/JLex/) 
 * [CUP](http://www.cs.princeton.edu/~appel/modern/java/CUP/) 
 
-Contributing
-------------
-
-Want to contribute? Great! There are two ways to add markups.
