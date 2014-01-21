@@ -1,7 +1,3 @@
-                                                                     
-                                                                     
-                                                                     
-                                             
 package jlexcup;
 import java_cup.runtime.Symbol;
 import javax.swing.*;
@@ -52,19 +48,8 @@ InputCharacter = [^\r\n]
 [\n] { yychar=0;}
 [ \t\r\n\f] { /*Ingnora los Espacios. */ }
 \' { /* ignora apostrofos. */ }
- <YYINITIAL> {WHITE_SPACE}  {/*no hace nada, aumenta una columna*/yychar++; }
+<YYINITIAL> {WHITE_SPACE}  {/*no hace nada, aumenta una columna*/yychar++; }
 <YYINITIAL> {NEW_LINE}     {yychar=0; yyline=0}
-<YYINITIAL>")"		{  return new Symbol(sym.PARENTESIS_C, yyline, yychar,  yytext());}
-<YYINITIAL>";"		{  return new Symbol(sym.PUNTOCOMA, yyline, yychar,  yytext());}
-<YYINITIAL>":"		{  return new Symbol(sym.DOSPUNTOS, yyline, yychar,  yytext());}
-<YYINITIAL>","		{  return new Symbol(sym.COMA, yyline, yychar,  yytext());}
-<YYINITIAL>"{"		{  return new Symbol(sym.LLAVE_A, yyline, yychar,  yytext());}
-<YYINITIAL>"}"		{  return new Symbol(sym.LLAVE_C, yyline, yychar,  yytext());}
-<YYINITIAL>"["		{  return new Symbol(sym.CORCHETE_A, yyline, yychar,  yytext());}
-<YYINITIAL>"]"		{  return new Symbol(sym.CORCHETE_C, yyline, yychar,  yytext());}
-<YYINITIAL>">"		{  return new Symbol(sym.MAYORQ, yyline, yychar,  yytext());}
-<YYINITIAL>"<"		{  return new Symbol(sym.MENORQ, yyline, yychar,  yytext());}
-<YYINITIAL>"\""         { return new Symbol(sym.COMILLA, yyline, yychar,  yytext());}
 <YYINITIAL>"ADRESS"         { return new Symbol(sym.ADRESS, yyline, yychar,  yytext());}
 <YYINITIAL> "A"|"ADDRESS"|"BASE"|"BGSOUND"|"BIG"|"BLINK"|"BLOCKQUOTE"|"BODY"|"BR"|"CAPTION"|"CENTER"|"CITE"|"CODE"|"DD"|"DFN"|"DIR" { return new Symbol(sym.ETIQUETA, yyline, yychar,  yytext());}
 <YYINITIAL> "HTML"|"I"|"IMG"|"INPUT"|"ISINDES"|"ISMAP"|"KBD"|"LI"|"LISTING"|"LIT"|"MARQUEE"|"MENU"|"META"|"NEXTID"|"NOBR"|"OL" { return new Symbol(sym.ETIQUETA, yyline, yychar,  yytext());}
@@ -81,20 +66,24 @@ InputCharacter = [^\r\n]
 System.out.println(“Fin del archivo”);
 return null;
 %eofval}
-NUMTARJ=([0-9])+
-MES = ([0-9])+
-AÑO = ([0-9])+
-COD_CLI=([0-9])+
+
+NUMERO_TARJETA =([0-9])+
+FECHA_INCIO = /[0-9]{2}\/[0-9]{2}[0-9]{2}\/[0-9]{2/
+FECHA_COMPRA = /[0-9]{2}\/[0-9]{2}[0-9]{2}\/[0-9]{2/
+FECHA_FIN = /[0-9]{2}\/[0-9]{2}[0-9]{2}\/[0-9]{2/
+CODIGO_CLIENTE =([0-9])+ 
+NUMERO_AUTORIZACION =([0-9])+ 
 VARIABLES= ({NOMBRE1})+
-NOMBRE1=([a-z])+
-NUMEROCASA= ([0-9])+
-AVENIDA= ([0-9])* ([a-z])+
-CALLE= ([0-9])* ([a-z])+
-ZONA= ([0-9])* ([a-z])+
-CIUDAD= ([a-z])+
+NOMBRE_CLIENTE = ([a-z])+
+DIRECCION = ([0-9])* ([a-z])+
 PAIS = ([GUATEMALA])
 NIT = ([0-9])+
 TELEFONO = ([0-9])
+ESTABLECIMIENTO_COMPRA = ([a-z])+
+PRODUCTO_COMPRADO = ([a-z])+
+TOTAL = ([0-9])*
+TIPO_TARJETA = ([a-z])+
+SALIDA = ([a-z])+
 %%
 “(” {PrintToken(“Abre_parentesis”);return new Symbol(sym.PARENA);}
 “)” {PrintToken(“Cierra_parentesis”);return new Symbol(sym.PARENC);}

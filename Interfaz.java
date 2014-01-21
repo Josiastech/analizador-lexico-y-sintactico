@@ -12,6 +12,7 @@ package analizador;
 
 import javax.swing.*;
 import java.io.*;
+import java.net.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.sql.*;
 import java.util.*;
@@ -33,6 +34,8 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jPanel3 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -41,19 +44,29 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
 
+        jMenuItem8.setText("jMenuItem8");
+
+        jMenuItem9.setText("jMenuItem9");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Analizador Lexico");
+        setBackground(new java.awt.Color(51, 102, 255));
+
+        jPanel3.setBackground(new java.awt.Color(51, 153, 255));
+
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -76,7 +89,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("HTML", jPanel1);
+        jTabbedPane1.addTab("Entrada", jPanel1);
 
         jTextArea2.setColumns(20);
         jTextArea2.setEditable(false);
@@ -100,27 +113,38 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Analizador", jPanel2);
+        jTabbedPane1.addTab("Entrada Analizada", jPanel2);
+
+        jLabel1.setFont(new java.awt.Font("Adobe Fan Heiti Std", 0, 24)); // NOI18N
+        jLabel1.setText("Movimiento de Tarjetas - Banco de Guatemala");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
+        jMenuBar1.setBackground(new java.awt.Color(51, 153, 255));
         jMenuBar1.setBorder(null);
 
+        jMenu1.setBackground(new java.awt.Color(51, 153, 255));
         jMenu1.setText("Archivo");
 
         jMenuItem1.setText("Abrir");
@@ -131,15 +155,13 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenu3.setText("Guardar");
-
         jMenuItem2.setText("Guardar HTML");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed1(evt);
             }
         });
-        jMenu3.add(jMenuItem2);
+        jMenu1.add(jMenuItem2);
 
         jMenuItem6.setText("Guardar Analisis");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -147,9 +169,15 @@ public class Interfaz extends javax.swing.JFrame {
                 jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem6);
+        jMenu1.add(jMenuItem6);
 
-        jMenu1.add(jMenu3);
+        jMenuItem7.setText("Limpiar Ventana");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem7);
 
         jMenuItem3.setText("Cerrar");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -161,9 +189,10 @@ public class Interfaz extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Ejecutar");
+        jMenu2.setBackground(new java.awt.Color(51, 153, 255));
+        jMenu2.setText("Analizador");
 
-        jMenuItem4.setText("Analisis Lexico");
+        jMenuItem4.setText("Lexico");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -232,7 +261,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        
         Comparador C = new Comparador();
         jTabbedPane1.setSelectedComponent(jPanel2);
         jTextArea2.setText("");
@@ -269,6 +298,10 @@ public class Interfaz extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -277,7 +310,7 @@ public class Interfaz extends javax.swing.JFrame {
 
             @Override
             public void run() {
-                
+
                 new Interfaz().setVisible(true);
             }
         });
@@ -288,7 +321,8 @@ public class Interfaz extends javax.swing.JFrame {
         JFileChooser fileChooser = new JFileChooser();
 
         JFileChooser jf = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("html", "html");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("txt", "txt");
+        //FileNameExtensionFilter filter = new FileNameExtensionFilter("html", "html");
         fileChooser.setFileFilter(filter);
 
 
@@ -324,17 +358,21 @@ public class Interfaz extends javax.swing.JFrame {
 
         int seleccion = guardar.showSaveDialog(null);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
+            //String dir = "/Users/josiastech/NetBeansProjects/analizador/";
+            //String dir = guardar.getSelectedFile().getPath();
+            //String path = "/Users/josiastech/NetBeansProjects/analizador/";
             String dir = guardar.getSelectedFile().getPath();
+            
 
 
             Texto = Jtexto;
             String[] arrayText = Texto.split("\n");
 
             try {
-
                 FileWriter fichero = null;
                 PrintWriter pw = null;
 
+                //fichero = new FileWriter("salida.html");
                 fichero = new FileWriter(dir);
                 pw = new PrintWriter(fichero);
 
@@ -345,6 +383,8 @@ public class Interfaz extends javax.swing.JFrame {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "No se pudo guardar archivo de entrada debido a " + e.toString());
             }
+
+
         }
     }
 
@@ -389,9 +429,9 @@ public class Interfaz extends javax.swing.JFrame {
         jTextArea1.setText(jTextArea1.getText() + name + "\n");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -399,6 +439,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
